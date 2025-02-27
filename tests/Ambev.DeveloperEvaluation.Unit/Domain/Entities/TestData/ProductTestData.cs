@@ -1,10 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
 using Bogus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData
 {
@@ -29,32 +24,5 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData
         {
             return ProductFaker.Generate();
         }
-
-        public static string GenerateValidTitle()
-        {
-            return new Faker().Commerce.ProductName();
-        }
-
-        public static string GenerateValidDescription()
-        {
-            return new Faker().Commerce.ProductDescription();
-        }
-
-        public static string GenerateValidCategory()
-        {
-            return new Faker().Commerce.Categories(1).First();
-        }
-
-        public static string GenerateValidImage()
-        {
-            return new Faker().Image.PicsumUrl();
-        }
-
-        public static decimal GenerateValidPrice()
-        {
-            return new Faker().Random.Decimal(1, 1000);
-        }
-
-
     }
 }
