@@ -100,6 +100,11 @@ public class SaleItem : BaseEntity
     public void ChangeQuantity(int quantity)
     {
         Quantity = quantity;
+        if(quantity == 0)
+        {
+            IsCancelled = true;
+        }
+
         CalculateTotalAmount();
     }
 

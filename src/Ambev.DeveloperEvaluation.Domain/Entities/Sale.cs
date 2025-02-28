@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Validation;
 using Ambev.DeveloperEvaluation.Domain.Common;
+using Ambev.DeveloperEvaluation.Domain.Enums;
 using Ambev.DeveloperEvaluation.Domain.Validation;
 
 namespace Ambev.DeveloperEvaluation.Domain.Entities;
@@ -10,10 +11,6 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities;
 /// </summary>
 public class Sale : BaseEntity
 {
-    /// <summary>
-    /// Gets or sets the sale number.
-    /// </summary>
-    public string SaleNumber { get; set; }
 
     /// <summary>
     /// Gets or sets the date of the sale.
@@ -45,6 +42,9 @@ public class Sale : BaseEntity
     /// </summary>
     public bool IsCancelled { get; set; }
 
+    public SaleStatus SaleStatus { get; private set ; } = SaleStatus.Cancelled;
+
+
     private readonly List<SaleItem> _items;
 
     /// <summary>
@@ -52,7 +52,7 @@ public class Sale : BaseEntity
     /// </summary>
     public IReadOnlyCollection<SaleItem> Items => _items;
 
-    public User _user;
+    public User User;
 
     public Sale()
     {
@@ -67,7 +67,6 @@ public class Sale : BaseEntity
     /// <param name="branch">The branch where the sale occurred.</param>
     public Sale(Guid userId, string branch)
     {
-        SaleNumber = Guid.NewGuid().ToString();
         SaleDate = DateTime.Now;
         UserId = userId;
         Branch = branch;
@@ -81,6 +80,7 @@ public class Sale : BaseEntity
     public void AddItem(SaleItem item)
     {
         if (!item.Validate().IsValid) throw new DomainException("Sale Item is not valid.");
+        Open();
 
         if (SaleItemExists(item))
         {
@@ -90,11 +90,12 @@ public class Sale : BaseEntity
 
             _items.Remove(existingItem);
         }
-
+        
         _items.Add(item);
 
         CalculateSale();
     }
+
 
     /// <summary>
     /// Removes an item from the sale.
@@ -153,13 +154,6 @@ public class Sale : BaseEntity
         return _items.Any(si => si.ProductId == item.ProductId);
     }
 
-    /// <summary>
-    /// Cancels the sale.
-    /// </summary>
-    public void Cancel()
-    {
-        IsCancelled = true;
-    }
 
     /// <summary>
     /// Calculates the total amount of the sale.
@@ -181,6 +175,12 @@ public class Sale : BaseEntity
         return saleItem.Quantity * saleItem.UnitPrice * (1 - discount);
     }
 
+    public decimal GetDiscutount(SaleItem saleItem)
+    {
+        var discountPercentage = GetDiscount(saleItem.Quantity);
+        return saleItem.Quantity * saleItem.UnitPrice * discountPercentage;
+    }
+
     /// <summary>
     /// Gets the discount percentage based on the quantity of the sale item.
     /// </summary>
@@ -195,6 +195,25 @@ public class Sale : BaseEntity
             > 20 => throw new DomainException("Quantity cannot be greater than 20."),
             _ => 0m
         };
+    }
+
+
+    private void Open()
+    {
+        if (SaleStatus == SaleStatus.Closed) throw new DomainException("Sale is already closed.");
+        SaleStatus = SaleStatus.Open;
+    }
+
+    public void Cancel()
+    {
+        SaleStatus = SaleStatus.Cancelled;
+        IsCancelled = true;
+    }
+
+    public void Close()
+    {
+        CalculateSale();
+        SaleStatus = SaleStatus.Closed;
     }
 
     /// <summary>
