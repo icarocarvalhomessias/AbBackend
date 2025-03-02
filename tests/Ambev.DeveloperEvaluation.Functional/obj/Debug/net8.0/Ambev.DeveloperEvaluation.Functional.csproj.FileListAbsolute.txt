@@ -1,11 +1,5 @@
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\.msCoverageSourceRootsMapping_Ambev.DeveloperEvaluation.Functional
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\CoverletSourceRootsMapping_Ambev.DeveloperEvaluation.Functional
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.csproj.AssemblyReference.cache
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.GeneratedMSBuildEditorConfig.editorconfig
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.AssemblyInfoInputs.cache
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.AssemblyInfo.cs
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.csproj.CoreCompileInputs.cache
-C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.sourcelink.json
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\testhost.dll
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\appsettings.json
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\testhost.exe
@@ -149,6 +143,12 @@ C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\De
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\Ambev.DeveloperEvaluation.Application.pdb
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\Ambev.DeveloperEvaluation.ORM.pdb
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\bin\Debug\net8.0\Ambev.DeveloperEvaluation.Common.pdb
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.csproj.AssemblyReference.cache
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.AssemblyInfoInputs.cache
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.AssemblyInfo.cs
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.csproj.CoreCompileInputs.cache
+C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.sourcelink.json
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.De.CE2A0EC7.Up2Date
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\Ambev.DeveloperEvaluation.Functional.dll
 C:\Workspace\backend\AbBackend\tests\Ambev.DeveloperEvaluation.Functional\obj\Debug\net8.0\refint\Ambev.DeveloperEvaluation.Functional.dll

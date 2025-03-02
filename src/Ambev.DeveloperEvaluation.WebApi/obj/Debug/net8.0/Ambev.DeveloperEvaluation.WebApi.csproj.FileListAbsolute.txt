@@ -3,6 +3,7 @@ C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\ne
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.AssemblyInfoInputs.cache
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.AssemblyInfo.cs
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.csproj.CoreCompileInputs.cache
+C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.sourcelink.json
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\bin\Debug\net8.0\appsettings.Development.json
