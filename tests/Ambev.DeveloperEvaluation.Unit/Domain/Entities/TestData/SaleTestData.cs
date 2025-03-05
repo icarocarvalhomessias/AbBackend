@@ -7,7 +7,7 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities.TestData
     {
 
         private static readonly Faker<Sale> SaleFaker = new Faker<Sale>()
-            .RuleFor(s => s.SaleNumber, f => f.Random.Guid().ToString())
+            .RuleFor(s => s.Id, f => f.Random.Guid())
             .RuleFor(s => s.SaleDate, f => f.Date.Past(1))
             .RuleFor(s => s.UserId, f => f.Random.Guid())
             .RuleFor(s => s.TotalAmount, f => f.Random.Decimal(1, 1000))

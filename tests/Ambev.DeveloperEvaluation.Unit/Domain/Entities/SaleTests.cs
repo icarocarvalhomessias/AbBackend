@@ -40,5 +40,26 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities
             sale.TotalAmount.Should().Be(expectedTotalAmount);
         }
 
+
+        [Theory]
+        [InlineData(4, 100, 40)] // 10% discount on 4 items with unit price 100
+        [InlineData(10, 100, 200)] // 20% discount on 10 items with unit price 100
+        public void GetDiscutount_ShouldReturnCorrectDiscountValue(int quantity, decimal unitPrice, decimal expectedDiscount)
+        {
+            // Arrange
+            var saleItem = new SaleItem
+            {
+                Quantity = quantity,
+                UnitPrice = unitPrice
+            };
+            var sale = new Sale();
+
+            // Act
+            var discount = sale.GetDiscutount(saleItem);
+
+            // Assert
+            discount.Should().Be(expectedDiscount);
+        }
+
     }
 }

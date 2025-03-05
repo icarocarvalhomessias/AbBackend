@@ -113,7 +113,7 @@ public class Product : BaseEntity
 /// Represents the rating of a product.
 /// Includes the rate and count of ratings.
 /// </summary>
-public class Rating
+public class Rating : BaseEntity
 {
     /// <summary>
     /// Gets or sets the rate of the product.

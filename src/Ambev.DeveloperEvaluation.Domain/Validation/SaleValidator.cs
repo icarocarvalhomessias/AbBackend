@@ -7,11 +7,6 @@ public class SaleValidator : AbstractValidator<Sale>
 {
     public SaleValidator()
     {
-        RuleFor(sale => sale.SaleNumber)
-            .NotNull()
-            .NotEmpty()
-            .WithMessage("Sale Number must be informed.");
-
         RuleFor(sale => sale.SaleDate)
             .NotNull()
             .NotEmpty()

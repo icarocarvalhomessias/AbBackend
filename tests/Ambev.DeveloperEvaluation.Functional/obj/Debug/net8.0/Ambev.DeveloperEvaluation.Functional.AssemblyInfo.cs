@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ambev.DeveloperEvaluation.Functional")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7aae1301942ee8e95a7af7c60b4183706a4e1383")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ambev.DeveloperEvaluation.Functional")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ambev.DeveloperEvaluation.Functional")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
