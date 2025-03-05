@@ -54,6 +54,8 @@ public class UpdateSaleHandler : IRequestHandler<UpdateSaleCommand, UpdateSaleRe
             }
         }
 
+        sale.CalculateSale();
+
         await _saleRepository.UpdateAsync(sale, cancellationToken);
 
         await _mediator.Publish(new SaleModifiedEvent(sale.Id, sale.TotalAmount), cancellationToken);

@@ -67,7 +67,8 @@ public class Sale : BaseEntity
     /// <param name="branch">The branch where the sale occurred.</param>
     public Sale(Guid userId, string branch)
     {
-        SaleDate = DateTime.Now;
+        Id = Guid.NewGuid();
+        SaleDate = DateTime.UtcNow;
         UserId = userId;
         Branch = branch;
         _items = new List<SaleItem>();

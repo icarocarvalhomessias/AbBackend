@@ -148,10 +148,10 @@ C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\ne
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Ambev.DeveloperEvaluation.WebApi.props
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Ambev.DeveloperEvaluation.WebApi.props
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.De.DEA3C0BD.Up2Date
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.dll
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\refint\Ambev.DeveloperEvaluation.WebApi.dll
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.pdb
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\Ambev.DeveloperEvaluation.WebApi.genruntimeconfig.cache
 C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\ref\Ambev.DeveloperEvaluation.WebApi.dll
+C:\Workspace\backend\AbBackend\src\Ambev.DeveloperEvaluation.WebApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

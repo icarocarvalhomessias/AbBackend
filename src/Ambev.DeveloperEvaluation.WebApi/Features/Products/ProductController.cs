@@ -2,6 +2,7 @@
 using Ambev.DeveloperEvaluation.Application.Products.GetProducts;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
+using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProducts;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +25,9 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponseWithData<GetProductsResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetProducts([FromQuery] int _page = 1, [FromQuery] int _size = 10, [FromQuery] string _order = "id desc")
+        public async Task<IActionResult> GetProducts([FromQuery] GetProductsRequest getProductsRequest)
         {
-            if (_page < 1) _page = 1;
-            if (_size < 1) _size = 10;
-
-            var request = new GetProductsQuery(_page, _size, _order);
+            var request = new GetProductsQuery(getProductsRequest.Page, getProductsRequest.PageSize, getProductsRequest.OrderBy);
             var products = await _mediator.Send(request);
 
             var response = new ApiResponseWithData<GetProductsResult>
@@ -45,14 +43,16 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponseWithData<CreateProductResponse>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateProduct([FromBody] string title, [FromBody] string description, [FromBody] decimal price, [FromBody] string category)
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest createProductRequest)
         {
             var command = new CreateProductCommand
             {
-                Title = title,
-                Description = description,
-                Price = price,
-                Category = category
+                Title = createProductRequest.Title,
+                Description = createProductRequest.Description,
+                Price = createProductRequest.Price,
+                Category = createProductRequest.Category,
+                Rating = createProductRequest.Rating,
+                Count = createProductRequest.Count
             };
 
             var result = await _mediator.Send(command);
@@ -65,5 +65,6 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products
                 Data = response
             });
         }
+
     }
 }

@@ -3,22 +3,20 @@ using Ambev.DeveloperEvaluation.Common.Validation;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.EditCartItem;
 
-public class EditCartItemRequest 
+public class EditCartRequest 
 {
-    public int CartId { get; set; }
-    public int ProductId { get; set; }
+    public Guid ProductId { get; set; }
     public int Quantity { get; set; }
 
-    public EditCartItemRequest(int cartId, int productId, int quantity)
+    public EditCartRequest(Guid productId, int quantity)
     {
-        CartId = cartId;
         ProductId = productId;
         Quantity = quantity;
     }
 
     public ValidationResultDetail validationResultDetail()
     {
-        var validator = new EditCartItemValidator();
+        var validator = new EditCartValidator();
         var result = validator.Validate(this);
         return new ValidationResultDetail
         {

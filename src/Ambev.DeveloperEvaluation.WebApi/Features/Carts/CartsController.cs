@@ -1,9 +1,11 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
 using Ambev.DeveloperEvaluation.Application.Sales.DeleteSale;
+using Ambev.DeveloperEvaluation.Application.Sales.GetSaleById;
 using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
 using Ambev.DeveloperEvaluation.Application.Sales.UpdateSale;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Carts.AddCartItem;
+using Ambev.DeveloperEvaluation.WebApi.Features.Carts.EditCartItem;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +14,8 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CartsController : ControllerBase
+//[Authorize]
+public class CartsController : BaseController
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
@@ -45,11 +48,11 @@ public class CartsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [ProducesResponseType(typeof(ApiResponseWithData<List<GetSalesResult>>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponseWithData<GetSalesResult>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetCartById(int id)
+    public async Task<IActionResult> GetCartById(string id)
     {
-        var request = new GetSalesQuery();
+        var request = new GetSaleByIdQuery(Guid.Parse(id));
         var cart = await _mediator.Send(request);
 
         if (cart == null)
@@ -61,7 +64,7 @@ public class CartsController : ControllerBase
             });
         }
 
-        return Ok(new ApiResponseWithData<List<GetSalesResult>>
+        return Ok(new ApiResponseWithData<GetSalesResult>
         {
             Success = true,
             Message = "Cart retrieved successfully",
@@ -78,8 +81,8 @@ public class CartsController : ControllerBase
         {
             Branch = cartItem.Branch,
             ProductId = cartItem.ProductId,
-            Quantity = cartItem.Quantity
-            
+            Quantity = cartItem.Quantity,
+            CustomerId = GetCurrentUserId()
         };
 
         var cart = await _mediator.Send(command);
@@ -94,9 +97,9 @@ public class CartsController : ControllerBase
     [HttpPut("{id}")]
     [ProducesResponseType(typeof(ApiResponseWithData<UpdateSaleResult>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateCart(Guid id, [FromBody] Guid productId, [FromBody] int quantity)
+    public async Task<IActionResult> EditCart(Guid id, [FromBody] EditCartRequest editCartItemRequest)
     {
-        var command = new UpdateSaleCommand(id, productId, quantity);
+        var command = new UpdateSaleCommand(id, editCartItemRequest.ProductId, editCartItemRequest.Quantity);
         var cart = await _mediator.Send(command);
 
         return Ok(new ApiResponseWithData<UpdateSaleResult>

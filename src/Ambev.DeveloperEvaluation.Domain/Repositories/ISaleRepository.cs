@@ -10,5 +10,5 @@ public interface ISaleRepository
     Task<Sale> GetByIdAsync(Guid id, CancellationToken cancellationToken);
     Task<IEnumerable<Sale>> GetByCustomerIdAsync(Guid customerId, CancellationToken cancellationToken);
     Task<IEnumerable<Sale>> GetAllAsync(CancellationToken cancellationToken);
-    Task<IEnumerable<Sale>> GetSales(int page, int pageSize, string order, CancellationToken cancellationToken);
+    Task<List<Sale>> GetSales(int page, int pageSize, string order, CancellationToken cancellationToken);
 }

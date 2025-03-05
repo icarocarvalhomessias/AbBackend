@@ -8,5 +8,7 @@ public class GetProductsProfile : Profile
     public GetProductsProfile()
     {
         CreateMap<Product, GetProductsResult>();
+        CreateMap<Product, ProductsResult>();
+
     }
 }

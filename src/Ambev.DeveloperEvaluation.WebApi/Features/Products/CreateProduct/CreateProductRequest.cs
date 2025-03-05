@@ -6,5 +6,6 @@ public class CreateProductRequest
     public string Description { get; set; }
     public decimal Price { get; set; }
     public string Category { get; set; }
-
+    public decimal Rating { get; set; }
+    public int Count { get; set; }
 }

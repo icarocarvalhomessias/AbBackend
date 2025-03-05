@@ -38,19 +38,35 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
                 .ToListAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<Sale>> GetSales(int page, int pageSize, string order, CancellationToken cancellationToken)
+        public async Task<List<Sale>> GetSales(int page, int pageSize, string order, CancellationToken cancellationToken)
         {
             var query = _context.Sales.AsQueryable();
-            if (!string.IsNullOrWhiteSpace(order))
-            {
-                query = query.OrderBy(s => EF.Property<object>(s, order));
-            }
-            return await query
-                .Include(s => s.Items)
-                    .ThenInclude(i => i.Product)
-                .Skip(page * pageSize)
-                .Take(pageSize)
-                .ToListAsync(cancellationToken);
+
+            //// Apply ordering
+            //if (!string.IsNullOrEmpty(order))
+            //{
+            //    var orderParams = order.Split(' ');
+            //    var propertyName = orderParams[0];
+            //    var direction = orderParams.Length > 1 ? orderParams[1] : "asc";
+
+            //    if (direction.ToLower() == "desc")
+            //    {
+            //        query = query.OrderByDescending(e => EF.Property<object>(e, propertyName));
+            //    }
+            //    else
+            //    {
+            //        query = query.OrderBy(e => EF.Property<object>(e, propertyName));
+            //    }
+            //}
+
+            // Apply pagination
+            query = query.Skip((page - 1) * pageSize).Take(pageSize);
+
+            return await query.
+                Include(u => u.User).
+                Include(s => s.Items)
+                    .ThenInclude(i => i.Product).
+                ToListAsync(cancellationToken);
         }
 
         public async Task UpdateAsync(Sale sale, CancellationToken cancellationToken)

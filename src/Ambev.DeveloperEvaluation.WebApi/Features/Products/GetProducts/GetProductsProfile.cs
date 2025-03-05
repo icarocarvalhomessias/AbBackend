@@ -1,4 +1,5 @@
 ﻿using Ambev.DeveloperEvaluation.Application.Products.GetProducts;
+using Ambev.DeveloperEvaluation.Domain.Entities;
 using AutoMapper;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProducts;
@@ -9,5 +10,12 @@ public class GetProductsProfile : Profile
     {
         CreateMap<GetProductsRequest, GetProductsQuery>();
         CreateMap<GetProductsResult, GetProductsResponse>();
+
+        CreateMap<Product, ProductsResult>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+            .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+            .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
+            .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
     }
 }

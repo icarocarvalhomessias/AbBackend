@@ -34,6 +34,7 @@ public class Product : BaseEntity
     /// </summary>
     public string Category { get; set; } = string.Empty;
 
+
     /// <summary>
     /// Gets or sets the product image URL.
     /// Must be a valid URL format.
@@ -45,6 +46,7 @@ public class Product : BaseEntity
     /// Includes the rate and count of ratings.
     /// </summary>
     public Rating Rating { get; set; } = new Rating();
+
 
     /// <summary>
     /// Gets a value indicating whether the product is available.

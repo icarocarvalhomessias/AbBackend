@@ -6,6 +6,14 @@ public class BaseEntity : IComparable<BaseEntity>
 {
     public Guid Id { get; set; }
 
+    public BaseEntity()
+    {
+        if (Id == Guid.Empty)
+        {
+            Id = Guid.NewGuid();
+        }
+    }
+
     public Task<IEnumerable<ValidationErrorDetail>> ValidateAsync()
     {
         return Validator.ValidateAsync(this);
