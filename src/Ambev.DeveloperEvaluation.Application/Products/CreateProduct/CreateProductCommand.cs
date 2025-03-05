@@ -39,6 +39,16 @@ public class CreateProductCommand : IRequest<CreateProductResult>
     /// </summary>
     public string Category { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Gets or sets the rating of the product.
+    /// </summary>
+    public decimal Rating { get; set; }
+
+    /// <summary>
+    /// Gets or sets the count of ratings.
+    /// </summary>
+    public int Count { get; set; }
+
     public ValidationResultDetail Validate()
     {
         var validator = new CreateProductValidator();

@@ -8,6 +8,11 @@ public class GetProductsRequest
     public int? PageSize { get; }
     public string? OrderBy { get; }
 
+    public GetProductsRequest()
+    {
+        
+    }
+
     public GetProductsRequest(int? page, int? pageSize, string? order)
     {
         Page = page;

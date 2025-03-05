@@ -52,7 +52,7 @@ public class GetProductsHandler : IRequestHandler<GetProductsQuery, GetProductsR
             throw new KeyNotFoundException("No products found");
         }
 
-        var productsResults = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductsResult>>(products);
+        var productsResults = _mapper.Map<IEnumerable<ProductsResult>>(products);
 
         return new GetProductsResult(productsResults);
     }

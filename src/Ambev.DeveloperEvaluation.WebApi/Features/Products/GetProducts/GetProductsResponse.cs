@@ -1,6 +1,4 @@
-﻿using Ambev.DeveloperEvaluation.Application.Products.GetProducts;
-
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProducts;
+﻿namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProducts;
 
 public class GetProductsResponse
 {

@@ -41,6 +41,14 @@ public class CreateProductHandler : IRequestHandler<CreateProductCommand, Create
 
         var product = _mapper.Map<Product>(command);
 
+        var rating = new Rating
+        {
+            Rate = command.Rating,
+            Count = command.Count
+        };
+
+        product.Rating = rating;
+
         var createdProduct = await _productRepository.CreateAsync(product, cancellationToken);
 
         var result = _mapper.Map<CreateProductResult>(createdProduct);

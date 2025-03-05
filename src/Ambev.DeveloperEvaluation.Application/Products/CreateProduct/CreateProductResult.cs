@@ -36,24 +36,12 @@ public class CreateProductResult
     public string Image { get; set; } = string.Empty;
 
     /// <summary>
-    /// The product rating
+    /// The rate of the product
     /// </summary>
-    public RatingCreate Rating { get; set; } = new RatingCreate();
+    public decimal Rate { get; set; }
 
     /// <summary>
-    /// Represents the rating of a product.
-    /// Includes the rate and count of ratings.
+    /// The count of ratings
     /// </summary>
-    public class RatingCreate
-    {
-        /// <summary>
-        /// The rate of the product
-        /// </summary>
-        public decimal Rate { get; set; }
-
-        /// <summary>
-        /// The count of ratings
-        /// </summary>
-        public int Count { get; set; }
-    }
+    public int Count { get; set; }
 }

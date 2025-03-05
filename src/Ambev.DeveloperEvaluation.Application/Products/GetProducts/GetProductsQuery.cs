@@ -8,6 +8,11 @@ public class GetProductsQuery : IRequest<GetProductsResult>
     public int? PageSize { get; }
     public string? Order { get; }
 
+    public GetProductsQuery()
+    {
+
+    }
+
     public GetProductsQuery(int? page, int? pageSize, string? order)
     {
         Page = page;

@@ -6,10 +6,10 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.EditCartItem;
 public class EditCartItemRequest 
 {
     public int CartId { get; set; }
-    public int ProductId { get; set; }
+    public Guid ProductId { get; set; }
     public int Quantity { get; set; }
 
-    public EditCartItemRequest(int cartId, int productId, int quantity)
+    public EditCartItemRequest(int cartId, Guid productId, int quantity)
     {
         CartId = cartId;
         ProductId = productId;

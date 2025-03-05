@@ -7,7 +7,7 @@ public class EditCartItemValidator : AbstractValidator<EditCartItemRequest>
     public EditCartItemValidator()
     {
         RuleFor(o => o.CartId).GreaterThan(0);
-        RuleFor(o => o.ProductId).GreaterThan(0);
+        RuleFor(o => o.ProductId).NotEmpty();
         RuleFor(o => o.Quantity).GreaterThan(0);
     }
 }

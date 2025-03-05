@@ -4,6 +4,7 @@ using Ambev.DeveloperEvaluation.Application.Sales.GetSales;
 using Ambev.DeveloperEvaluation.Application.Sales.UpdateSale;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Carts.AddCartItem;
+using Ambev.DeveloperEvaluation.WebApi.Features.Carts.EditCartItem;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -94,9 +95,9 @@ public class CartsController : ControllerBase
     [HttpPut("{id}")]
     [ProducesResponseType(typeof(ApiResponseWithData<UpdateSaleResult>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateCart(Guid id, [FromBody] Guid productId, [FromBody] int quantity)
+    public async Task<IActionResult> EditCartItem(Guid id, [FromBody] EditCartItemRequest editCartItemRequest)
     {
-        var command = new UpdateSaleCommand(id, productId, quantity);
+        var command = new UpdateSaleCommand(id, editCartItemRequest.ProductId, editCartItemRequest.Quantity);
         var cart = await _mediator.Send(command);
 
         return Ok(new ApiResponseWithData<UpdateSaleResult>

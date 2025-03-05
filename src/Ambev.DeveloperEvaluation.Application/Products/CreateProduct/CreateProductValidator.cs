@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 
@@ -26,5 +21,8 @@ public class CreateProductValidator : AbstractValidator<CreateProductCommand>
         RuleFor(product => product.Title).NotEmpty().MaximumLength(100);
         RuleFor(product => product.Description).NotEmpty().MaximumLength(500);
         RuleFor(product => product.Price).GreaterThan(0);
+        RuleFor(product => product.Category).NotEmpty();
+        RuleFor(product => product.Rating).GreaterThanOrEqualTo(0);
+        RuleFor(product => product.Count).GreaterThanOrEqualTo(0);
     }
 }
