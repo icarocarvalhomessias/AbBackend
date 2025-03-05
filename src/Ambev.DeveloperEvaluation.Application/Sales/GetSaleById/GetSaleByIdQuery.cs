@@ -8,6 +8,11 @@ public class GetSaleByIdQuery : IRequest<GetSalesResult>
 {
     public Guid Id { get; set; }
 
+    public GetSaleByIdQuery(Guid id)
+    {
+        Id = id;
+    }
+
     public ValidationResultDetail validationResultDetail()
     {
         var validator = new GetSaleByIdValidator();

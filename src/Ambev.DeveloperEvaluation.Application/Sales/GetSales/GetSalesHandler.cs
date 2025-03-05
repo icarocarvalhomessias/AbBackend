@@ -27,6 +27,7 @@ public class GetSalesHandler : IRequestHandler<GetSalesQuery, List<GetSalesResul
             Customer = s.User.Username,
             SaleDate = s.SaleDate,
             TotalAmount = s.TotalAmount,
+            Branch = s.Branch,
             Products = s.Items.Select(i => new ProductDetail
             {
                 ProductName = i.Product.Title,

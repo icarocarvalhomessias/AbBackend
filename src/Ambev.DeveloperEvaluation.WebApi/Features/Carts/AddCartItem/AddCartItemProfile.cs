@@ -8,6 +8,6 @@ public class AddCartItemProfile : Profile
     public AddCartItemProfile()
     {
         CreateMap<AddCartItemRequest, UpdateSaleCommand>();
-        CreateMap<UpdateSaleCommand, AddCartItemResponse>();
+        CreateMap<UpdateSaleResult, AddCartItemResponse>();
     }
 }

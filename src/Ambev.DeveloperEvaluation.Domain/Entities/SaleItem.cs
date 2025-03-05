@@ -70,6 +70,7 @@ public class SaleItem : BaseEntity
         Product = product;
         UnitPrice = product.Price;
         SaleId = saleId;
+        Quantity = quantity;
         CalculateTotalAmount();
     }
 

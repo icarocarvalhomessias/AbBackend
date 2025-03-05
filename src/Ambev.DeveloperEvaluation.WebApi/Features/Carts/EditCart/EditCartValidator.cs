@@ -2,11 +2,10 @@
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.EditCartItem;
 
-public class EditCartItemValidator : AbstractValidator<EditCartItemRequest>
+public class EditCartValidator : AbstractValidator<EditCartRequest>
 {
-    public EditCartItemValidator()
+    public EditCartValidator()
     {
-        RuleFor(o => o.CartId).GreaterThan(0);
         RuleFor(o => o.ProductId).NotEmpty();
         RuleFor(o => o.Quantity).GreaterThan(0);
     }

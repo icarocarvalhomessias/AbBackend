@@ -1,15 +1,13 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities;
 
 public class SalesItemTests
 {
+
+
+
     [Fact]
     public void SaleItem_WhenCreateSaleItemWithProductAndQuantity_ShouldCreateSaleItem()
     {
