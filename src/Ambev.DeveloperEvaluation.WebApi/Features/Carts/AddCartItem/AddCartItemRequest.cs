@@ -8,10 +8,13 @@ public class AddCartItemRequest
 
     public int Quantity { get; set; }
 
-    public AddCartItemRequest(Guid productId, int quantity)
+    public string Branch { get; set; }
+
+    public AddCartItemRequest(Guid productId, int quantity, string branch)
     {
         ProductId = productId;
         Quantity = quantity;
+        Branch = branch;
     }
 
     public ValidationResultDetail validationResultDetail()

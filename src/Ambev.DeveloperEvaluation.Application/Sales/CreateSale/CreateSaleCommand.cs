@@ -5,7 +5,6 @@ namespace Ambev.DeveloperEvaluation.Application.Sales.CreateSale;
 
 public class CreateSaleCommand : IRequest<CreateSaleResult>
 {
-    public string SaleNumber { get; set; }
     public string Branch { get; set; }
     public Guid ProductId { get; set; }
     public int Quantity { get; set; }

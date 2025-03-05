@@ -11,6 +11,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="FluentValidation" Version="11.10.0" />
 		<PackageReference Include="MediatR" Version="12.4.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -21,19 +23,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Ambev.DeveloperEvaluation.IoC\Ambev.DeveloperEvaluation.IoC.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Features\Products\CreateProduct\" />
 		<Folder Include="Features\Products\DeleteProduct\" />
 		<Folder Include="Features\Products\GetProductById\" />
-		<Folder Include="Features\Products\GetProducts\" />
 		<Folder Include="Features\Products\UpdateProduct\" />
 		<Folder Include="Features\Users\GetUser\" />
 		<Folder Include="Features\Users\DeleteUser\" />
 		<Folder Include="Features\Users\ListUsers\" />
 		<Folder Include="Features\Users\UpdateUser\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Ambev.DeveloperEvaluation.Application\Ambev.DeveloperEvaluation.Application.csproj" />
+	  <ProjectReference Include="..\Ambev.DeveloperEvaluation.Domain\Ambev.DeveloperEvaluation.Domain.csproj" />
+	  <ProjectReference Include="..\Ambev.DeveloperEvaluation.IoC\Ambev.DeveloperEvaluation.IoC.csproj" />
+	  <ProjectReference Include="..\Ambev.DeveloperEvaluation.ORM\Ambev.DeveloperEvaluation.ORM.csproj" />
 	</ItemGroup>
 
 </Project>
