@@ -39,7 +39,11 @@ public class CreateSaleHandler : IRequestHandler<CreateSaleCommand, CreateSaleRe
             throw new InvalidOperationException("Product not found.");
         }
 
-        sale.AddItem(new SaleItem(product, request.Quantity, sale.Id));
+        var saleItem = new SaleItem(product, request.Quantity, sale.Id);
+
+        await _saleRepository.AddSaleItem(saleItem, cancellationToken);
+
+        sale.AddItem(saleItem);
 
         await _saleRepository.UpdateAsync(sale, cancellationToken);
 

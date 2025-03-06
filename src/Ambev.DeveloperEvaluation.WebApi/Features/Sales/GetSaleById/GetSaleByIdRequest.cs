@@ -1,19 +1,19 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Validation;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.DeleteCart;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.GetSaleById;
 
-public class DeleteCartRequest
+public class GetSaleByIdRequest
 {
     public Guid Id { get; set; }
 
-    public DeleteCartRequest(Guid id)
+    public GetSaleByIdRequest(Guid id)
     {
         Id = id;
     }
 
     public ValidationResultDetail validationResultDetail()
     {
-        var validator = new DeleteCartValidator();
+        var validator = new GetSaleByIdValidator();
         var result = validator.Validate(this);
         return new ValidationResultDetail
         {

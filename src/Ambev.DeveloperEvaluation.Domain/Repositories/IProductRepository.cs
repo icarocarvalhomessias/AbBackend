@@ -11,4 +11,5 @@ public interface IProductRepository
     Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default);
     Task<IEnumerable<Product>> GetProducts(int page, int pageSize, string? order);
     Task<IEnumerable<Product>> GetProducts();
+    Task<IEnumerable<Product>> GetProductsByIdsAsync(List<Guid> productIds, CancellationToken cancellationToken = default);
 }

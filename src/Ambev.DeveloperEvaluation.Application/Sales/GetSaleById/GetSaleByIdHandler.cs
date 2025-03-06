@@ -35,13 +35,15 @@ public class GetSaleByIdHandler : IRequestHandler<GetSaleByIdQuery, GetSalesResu
             Branch = sale.Branch,
             Products = sale.Items.Select(i => new ProductDetail
             {
+                Id = i.ProductId,
                 ProductName = i.Product.Title,
                 Quantity = i.Quantity,
                 UnitPrice = i.UnitPrice,
                 Discount = sale.GetDiscutount(i),
                 TotalAmount = i.Quantity * i.UnitPrice - sale.GetDiscutount(i)
             }).ToList(),
-            IsCancelled = sale.IsCancelled
+            IsCancelled = sale.IsCancelled,
+            Status = sale.GetSaleStatus
         };
     }
 }

@@ -11,4 +11,8 @@ public interface ISaleRepository
     Task<IEnumerable<Sale>> GetByCustomerIdAsync(Guid customerId, CancellationToken cancellationToken);
     Task<IEnumerable<Sale>> GetAllAsync(CancellationToken cancellationToken);
     Task<List<Sale>> GetSales(int page, int pageSize, string order, CancellationToken cancellationToken);
+
+    Task AddSaleItem(SaleItem saleItem, CancellationToken cancellationToken);
+    Task AddSaleItem(IEnumerable<SaleItem> saleItems, CancellationToken cancellationToken);
+    Task UpdateSaleItem(IEnumerable<SaleItem> saleItems, CancellationToken cancellationToken);
 }

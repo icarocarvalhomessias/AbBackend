@@ -47,7 +47,6 @@ public class CreateUserHandlerTests
             Password = command.Password,
             Email = command.Email,
             Phone = command.Phone,
-            Status = command.Status,
             Role = command.Role
         };
 
@@ -106,7 +105,6 @@ public class CreateUserHandlerTests
             Password = command.Password,
             Email = command.Email,
             Phone = command.Phone,
-            Status = command.Status,
             Role = command.Role
         };
 
@@ -140,7 +138,6 @@ public class CreateUserHandlerTests
             Password = command.Password,
             Email = command.Email,
             Phone = command.Phone,
-            Status = command.Status,
             Role = command.Role
         };
 
@@ -157,7 +154,6 @@ public class CreateUserHandlerTests
             c.Username == command.Username &&
             c.Email == command.Email &&
             c.Phone == command.Phone &&
-            c.Status == command.Status &&
             c.Role == command.Role));
     }
 }

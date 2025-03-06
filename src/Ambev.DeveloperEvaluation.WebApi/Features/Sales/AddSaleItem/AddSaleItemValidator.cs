@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.AddCartItem;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.AddSaleItem;
 
-public class AddCartItemValidator : AbstractValidator<AddCartItemRequest>
+public class AddSaleItemValidator : AbstractValidator<AddSaleItemRequest>
 {
-    public AddCartItemValidator()
+    public AddSaleItemValidator()
     {
         RuleFor(x => x.ProductId).NotEmpty();
         RuleFor(x => x.Quantity).GreaterThan(0);

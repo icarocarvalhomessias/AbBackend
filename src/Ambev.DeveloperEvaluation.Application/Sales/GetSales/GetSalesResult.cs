@@ -9,10 +9,14 @@ public class GetSalesResult
     public string Branch { get; set; }
     public List<ProductDetail> Products { get; set; }
     public bool IsCancelled { get; set; }
+
+    public string Status { get; set; }
+
 }
 
 public class ProductDetail
 {
+    public Guid Id { get; set; }
     public string ProductName { get; set; }
     public int Quantity { get; set; }
     public decimal UnitPrice { get; set; }
