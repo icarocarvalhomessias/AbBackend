@@ -28,11 +28,6 @@ public class CreateUserRequest
     public string Email { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets the initial status of the user account.
-    /// </summary>
-    public UserStatus Status { get; set; }
-
-    /// <summary>
     /// Gets or sets the role assigned to the user.
     /// </summary>
     public UserRole Role { get; set; }

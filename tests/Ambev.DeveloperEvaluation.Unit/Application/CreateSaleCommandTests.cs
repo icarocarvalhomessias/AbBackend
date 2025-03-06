@@ -76,7 +76,7 @@ public class CreateSaleCommandTests
         _saleRepository.GetByIdAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>()).Returns(sale);
         _userRepository.GetByIdAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>()).Returns(user);
 
-        var command = new CloseSaleCommand { SaleNumber = sale.Id };
+        var command = new CloseSaleCommand(sale.Id);
 
         // When
         var result = await _closeSaleHandler.Handle(command, CancellationToken.None);
@@ -94,7 +94,7 @@ public class CreateSaleCommandTests
         // Given
         _saleRepository.GetByIdAsync(Arg.Any<Guid>(), Arg.Any<CancellationToken>()).Returns((Sale)null);
 
-        var command = new CloseSaleCommand { SaleNumber = Guid.NewGuid() };
+        var command = new CloseSaleCommand(Guid.NewGuid() );
 
         // When
         Func<Task> act = async () => await _closeSaleHandler.Handle(command, CancellationToken.None);
@@ -106,8 +106,12 @@ public class CreateSaleCommandTests
     [Fact(DisplayName = "Given valid sale data When updating sale Then returns success response")]
     public void UpdateSaleCommand_ValidData_ReturnsSuccessResponse()
     {
+        var products = new List<ProductQuantity>
+        {
+            new ProductQuantity { ProductId = Guid.NewGuid(), Quantity = 10 }
+        };
         // Given
-        var command = new UpdateSaleCommand(Guid.NewGuid(), Guid.NewGuid(), 10);
+        var command = new UpdateSaleCommand(Guid.NewGuid(), products);
 
         // When
         var validationResult = command.validationResultDetail();
@@ -119,8 +123,12 @@ public class CreateSaleCommandTests
     [Fact(DisplayName = "Given invalid sale data When updating sale Then returns validation errors")]
     public void UpdateSaleCommand_InvalidData_ReturnsValidationErrors()
     {
+        var products = new List<ProductQuantity>
+        {
+            new ProductQuantity { ProductId = Guid.NewGuid(), Quantity = 0 }
+        };
         // Given
-        var command = new UpdateSaleCommand(Guid.Empty, Guid.Empty, 0);
+        var command = new UpdateSaleCommand(Guid.Empty, products);
 
         // When
         var validationResult = command.validationResultDetail();
@@ -129,4 +137,5 @@ public class CreateSaleCommandTests
         validationResult.IsValid.Should().BeFalse();
         validationResult.Errors.Should().NotBeEmpty();
     }
+
 }

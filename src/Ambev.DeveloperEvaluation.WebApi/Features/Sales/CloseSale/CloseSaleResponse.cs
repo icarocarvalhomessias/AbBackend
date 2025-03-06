@@ -1,14 +1,15 @@
-﻿namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.GetSales;
+﻿namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.CloseSale;
 
-public class GetSalesResponse
+public class CloseSaleResponse
 {
-    public Guid SalesNumber { get; set; }
+    public Guid SaleNumber { get; set; }
     public DateTime SaleDate { get; set; }
     public string Customer { get; set; }
     public decimal TotalAmount { get; set; }
     public string Branch { get; set; }
     public List<ProductDetail> Products { get; set; }
     public bool IsCancelled { get; set; }
+
 }
 public class ProductDetail
 {

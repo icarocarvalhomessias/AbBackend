@@ -41,11 +41,6 @@ public class CreateUserCommand : IRequest<CreateUserResult>
     public string Email { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets the status of the user.
-    /// </summary>
-    public UserStatus Status { get; set; }
-
-    /// <summary>
     /// Gets or sets the role of the user.
     /// </summary>
     public UserRole Role { get; set; }

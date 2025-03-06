@@ -44,6 +44,8 @@ public class Sale : BaseEntity
 
     public SaleStatus SaleStatus { get; private set ; } = SaleStatus.Cancelled;
 
+    public string GetSaleStatus => SaleStatus.ToString();
+
 
     private readonly List<SaleItem> _items;
 
@@ -104,8 +106,6 @@ public class Sale : BaseEntity
     /// <param name="item">The sale item to remove.</param>
     public void RemoveItem(SaleItem item)
     {
-        if (!item.Validate().IsValid) throw new DomainException("Sale Item is not valid.");
-
         var existingItem = _items.First(si => si.ProductId == item.ProductId);
 
         if (existingItem is null) throw new DomainException("Sale Item not found.");
@@ -155,6 +155,11 @@ public class Sale : BaseEntity
         return _items.Any(si => si.ProductId == item.ProductId);
     }
 
+    public bool SaleItemExists(Guid productId)
+    {
+        return _items.Any(si => si.ProductId == productId);
+    }
+
 
     /// <summary>
     /// Calculates the total amount of the sale.
@@ -162,6 +167,7 @@ public class Sale : BaseEntity
     public void CalculateSale()
     {
         TotalAmount = _items.Sum(si => CalculateTotalAmountDiscount(si));
+        TotalDiscount = _items.Sum(si => GetDiscutount(si));
     }
 
     /// <summary>

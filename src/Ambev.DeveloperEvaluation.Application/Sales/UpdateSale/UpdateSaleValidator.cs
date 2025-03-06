@@ -7,7 +7,10 @@ public class UpdateSaleValidator : AbstractValidator<UpdateSaleCommand>
     public UpdateSaleValidator()
     {
         RuleFor(x => x.SaleId).NotEmpty();
-        RuleFor(x => x.ProductId).NotEmpty();
-        RuleFor(x => x.Quantity).GreaterThan(0);
+        RuleForEach(x => x.Products).ChildRules(products =>
+        {
+            products.RuleFor(p => p.ProductId).NotEmpty();
+            products.RuleFor(p => p.Quantity).InclusiveBetween(0, int.MaxValue);
+        });
     }
 }

@@ -7,6 +7,11 @@ public class CloseSaleCommand : IRequest<CloseSaleResult>
 {
     public Guid SaleNumber { get; set; }
 
+    public CloseSaleCommand(Guid saleNumber)
+    {
+        SaleNumber = saleNumber;
+    }
+
     public ValidationResultDetail Validate()
     {
         var validator = new CloseSaleValidator();

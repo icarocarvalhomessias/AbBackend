@@ -1,19 +1,19 @@
 ﻿using Ambev.DeveloperEvaluation.Common.Validation;
 
-namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.CloseCart;
+namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts.CloseSale;
 
-public class CloseCartRequest
+public class CloseSaleRequest
 {
     public Guid SaleNumber { get; set; }
 
-    public CloseCartRequest(Guid saleNumber)
+    public CloseSaleRequest(Guid saleNumber)
     {
         SaleNumber = saleNumber;
     }
 
     public ValidationResultDetail Validate()
     {
-        var validator = new CloseCartValidator();
+        var validator = new CloseSaleValidator();
         var result = validator.Validate(this);
         return new ValidationResultDetail
         {
